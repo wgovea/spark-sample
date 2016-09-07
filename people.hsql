@@ -1,0 +1,8 @@
+drop table people;
+create external table people (
+  name string,
+  age int,
+  country string
+)
+partitioned by (ts date)
+STORED AS orc

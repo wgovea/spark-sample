@@ -1,5 +1,5 @@
 #
-# GWCDR Process into Hive
+# Process  json files from hdfs and write into Hive in ORC
 #
 
 from __future__ import print_function
@@ -23,9 +23,7 @@ if __name__ == "__main__":
     hiveContext.setConf("spark.sql.orc.filterPushdown", "true")
 
     ## Create a DataFrame from the file(s) pointed to by path
-    #gwcdr =hiveContext.read.json("/user/wgovea/GWCDR_RAW_DB_EVENTS_2016_08_31_08.gz")
     gwcdr =hiveContext.read.json("/user/wgovea/people.json.gz")
-
 
     # The inferred schema can be visualized using the printSchema() method.
     gwcdr.printSchema()
